@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "brownian-motion"
+version = "1.0.0"
+description = "Simulation physique du mouvement brownien — gaz parfait 2D"
+requires-python = ">=3.9"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "pygame",
+    "pymunk",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "coverage"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
