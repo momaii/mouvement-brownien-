@@ -86,30 +86,27 @@ Ce projet modélise un gaz parfait bidimensionnel constitué de particules rigid
 # Structure du Projet
 
 ```
-docs/                       # Présentation du projet
-experiments/                # Prototypes indépendants
-    ├── Marche_aleatoire/
-    └── Pymunk/
-
-src/
-│
-├── physics/                # Moteur de simulation
-│   ├── definitions_objets.py
-│   └── fonctions_auxiliaires.py
-│
-├── visualization/          # Animation et interface graphique
-│   ├── animation_particules.py
-│   ├── animation_graphique.py
-│   ├── gazparfaits_graphique.py
-│  
-│
-└── __init__.py
-
-
-tests/                      # Tests unitaires
-
+mouvement-brownien/
+├── docs/                        # Présentation du projet
+│   └── Presentation_CW.pdf
+├── experiments/                 # Prototypes indépendants
+│   ├── Marche_aleatoire/
+│   └── Pymunk/
+├── src/
+│   ├── physics/                 # Moteur de simulation
+│   │   ├── definitions_objets.py
+│   │   └── fonctions_auxiliaires.py
+│   ├── visualization/           # Animation et interface graphique
+│   │   ├── animation_particules.py
+│   │   ├── animation_graphique.py
+│   │   └── gazparfaits_graphique.py
+│   ├── main.py                  # Lancement de la simulation
+│   └── __init__.py
+├── tests/                       # Tests unitaires
+├── pyproject.toml
+└── requirements.txt
 ```
-interface.py   # Lancement de la simulation  
+
 ---
 
 # Installation
@@ -138,7 +135,7 @@ pip install -e .
 # Lancer la Simulation
 
 ```bash
-python -m interface
+cd src && python main.py
 ```
 
 L’interface permet :
@@ -155,14 +152,13 @@ L’interface permet :
 # Tests
 
 ```bash
-pytest
+cd src && pytest ../tests/
 ```
 
 Couverture :
 
 ```bash
-coverage run -m pytest
-coverage html
+cd src && coverage run -m pytest ../tests/ && coverage html
 ```
 
 ---
